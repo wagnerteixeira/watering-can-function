@@ -28,5 +28,5 @@ jobs:
         # The service account key which will be used for authentication.
         service_account_key: ${{ secrets.GCP_SA_KEY }}
         
-    - name: Deploy checkRelease
+    - name: Deploy wateringCan
       run: gcloud functions deploy wateringCan --project ${{ secrets.GCP_PROJECT_ID }} --runtime nodejs8 --trigger-http --allow-unauthenticated
