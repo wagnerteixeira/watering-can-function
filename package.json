@@ -1,0 +1,17 @@
+{
+  "name": "watering-can-function",
+  "version": "0.0.1",
+  "description": "Function for watering can",
+  "scripts": {},
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "dependencies": {
+    "firebase-admin": "^8.6.0"
+  },
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wagnerteixeira/watering-can-function.git"
+  }
+}
