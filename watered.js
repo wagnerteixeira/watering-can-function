@@ -10,20 +10,27 @@ const treesService = baseService("trees");
  */
 
 module.exports = async (req, res) => {
-  if (!req.body.treeId) 
+    
+  const { treeid, watered } = req.body;
+
+  if (!treeid)
     return res.send({ result: false, message: "Invalid parameters" });
 
-  if (!req.body.watered)
+  if (!watered)
     return res.send({ result: false, message: "Invalid parameters" });
-    
+
   try {
-    const tree = await treesService.getDocById(req.body.treeId);
-    const newTree = {...tree, watering: false };
-    const res = await treesService.updateDoc(newTree);
-    return res.send({
-      result: true,
-      message: ""
-    });
+    if (watered) {
+      const tree = await treesService.getDocById(req.body.treeId);
+      const newTree = { ...tree, watering: false };
+      const res = await treesService.updateDoc(newTree);
+      return res.send({
+        result: true,
+        message: ""
+      });
+    } else {
+      return res.send({ result: false, message: "Not watered" });
+    }
   } catch (error) {
     return res.send({ result: false, message: new String(error) });
   }
