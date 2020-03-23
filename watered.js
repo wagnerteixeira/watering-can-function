@@ -22,8 +22,8 @@ module.exports = async (req, res) => {
   try {
     if (watered) {
       const tree = await treesService.getDocById(treeId);
-      const newTree = { ...tree, watering: false, id: treeId };
-      const res = await treesService.updateDoc(newTree);
+      const newTree = { ...tree, watering: false };
+      await treesService.updateDoc(treeId, newTree);
       return res.send({
         result: true,
         message: ""
