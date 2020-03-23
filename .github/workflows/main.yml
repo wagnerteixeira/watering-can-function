@@ -30,3 +30,7 @@ jobs:
         
     - name: Deploy wateringCan
       run: gcloud functions deploy wateringCan --project ${{ secrets.GCP_PROJECT_ID }} --runtime nodejs8 --trigger-http --allow-unauthenticated
+      
+    - name: Deploy watered
+      run: gcloud functions deploy watered --project ${{ secrets.GCP_PROJECT_ID }} --runtime nodejs8 --trigger-http --allow-unauthenticated
+
