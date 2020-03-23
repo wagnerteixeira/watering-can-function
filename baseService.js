@@ -23,7 +23,7 @@ module.exports = collection => {
 
   const deleteDoc = id => baseApi.doDelete(collection, id);
 
-  const updateDoc = data => baseApi.doUpdate(collection, data);
+  const updateDoc = (id, data) => baseApi.doUpdate(collection, id, data);
 
   const getDocs = () => {
     return new Promise((resolve, reject) => {

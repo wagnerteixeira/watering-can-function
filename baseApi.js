@@ -37,8 +37,8 @@ exports.doDelete = (collection, id) =>
     .doc(id)
     .delete();
 
-exports.doUpdate = (collection, data) =>
+exports.doUpdate = (collection, id, data) =>
   firestore
     .collection(collection)
-    .doc(data.id)
-    .set(data.data);
+    .doc(id)
+    .set(data);
