@@ -15,6 +15,8 @@ module.exports = async (req, res) => {
   }
   try {
     const tree = await treesService.getDocById(req.body.treeId);
+    const newTree = { ...tree, lastCheckCanWater: new Date() };      
+    await treesService.updateDoc(treeId, newTree);   
     return res.send({
       watering: tree.watering,
       message: "Check successful"

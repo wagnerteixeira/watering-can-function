@@ -22,11 +22,11 @@ module.exports = async (req, res) => {
   try {
     if (watered) {
       const tree = await treesService.getDocById(treeId);
-      const newTree = { ...tree, watering: false };
+      const newTree = { ...tree, watering: false, lastWatered: new Date() };
       await treesService.updateDoc(treeId, newTree);
       return res.send({
         result: true,
-        message: ""
+        message: "Update successful"
       });
     } else {
       return res.send({ result: false, message: "Not watered" });
